@@ -25,9 +25,13 @@ while True:
     elif choice == "2":
         show_tasks()
     elif choice == "3":
-        show_tasks()
+    show_tasks()
+    try:
         num = int(input("Enter task number to delete: "))
         delete_task(num)
+    except ValueError:
+        print("Please enter a valid number.")
+
     elif choice == "4":
         print("Goodbye!")
         break
