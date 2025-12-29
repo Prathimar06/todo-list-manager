@@ -14,7 +14,8 @@ def add_task(task):
 while True:
     print("\n1. Add Task")
     print("2. Show Tasks")
-    print("3. Exit")
+    print("3. Delete Task")
+    print("4.exit")
 
     choice = input("Enter choice: ")
 
@@ -24,7 +25,16 @@ while True:
     elif choice == "2":
         show_tasks()
     elif choice == "3":
+        show_tasks()
+        num = int(input("Enter task number to delete: "))
+        delete_task(num)
+    elif choice == "4":
         print("Goodbye!")
         break
-    else:
-        print("Invalid choice.")
+
+def delete_task(index):
+    try:
+        removed = tasks.pop(index - 1)
+        print(f"Removed task: {removed}")
+    except IndexError:
+        print("Invalid task number.")
